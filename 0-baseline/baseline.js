@@ -14,8 +14,8 @@ function timer() {
 }
 
 function sorter() {
-    document.querySelector("#prep").innerHTML = 'Sorting Data...';
     console.log("Start");
+    console.log("sorting");
     console.time('sorting');
     nums.sort();
     console.timeEnd('sorting');
@@ -25,6 +25,7 @@ function sorter() {
 prepData()
 setTimeout(() => {
     timer()
+    document.querySelector("#prep").innerHTML = 'Sorting Data...';
     sorter()
     clearInterval(window.timeInterval);
     document.querySelector("#result").innerHTML = "SORTED!";
