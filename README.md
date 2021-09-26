@@ -24,5 +24,6 @@ Since we don't block the main thread and UI stays responsive, it *feels* like th
 ## webworker-rust.html - WebWorker with Rust
 Let's now rewrite out functionality in Rust and compile it to WebAssembly. We'll then load it in a background worker as in the last example.
 
+We export one function to Javascript from our WASM bundle. This is `generate_and_sort()`. This function is called by our JS by run inside our WebAssembly bundle. It also generates and sorts a million numbers, adhering as closely to the original JS implementation as I could.
 
 ## Conclusion
