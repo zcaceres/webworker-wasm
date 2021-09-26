@@ -15,7 +15,7 @@ Let's try a Javascript WebWorker. WebWorkers do not have access to the DOM. Thin
 
 The JS WebWorker approach means we can refactor out our compute-intensive task (generating the numbers and sorting them) and leave the UI-oriented tasks (such as updating the timer) in the main JS thread.
 
-For this sample to run in Chrome, you must launch the browser with the `--allow-file-access-from-files` flag.
+For this sample to run in Chrome, you [must launch the browser with the `--allow-file-access-from-files` flag](https://stackoverflow.com/questions/18586921/how-to-launch-html-using-chrome-at-allow-file-access-from-files-mode).
 
 This version is actually *slower* on average than the last two! It takes about X seconds.
 
@@ -25,4 +25,4 @@ Since we don't block the main thread and UI stays responsive, it *feels* like th
 Let's now rewrite out functionality in Rust and compile it to WebAssembly. We'll then load it in a background worker as in the last example.
 
 
-## 
+## Conclusion
