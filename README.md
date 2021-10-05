@@ -1,3 +1,13 @@
+Ideas for feature
+- spinning image to show whether the UI thread is blocked
+- Tasks:
+    - real time dictionary search
+    - static dictionary search
+    - dictionary sorting
+    - sorting a million random numbers
+
+
+
 # Optimization with WASM and WebAssembly
 
 ## baseline.html - Vanilla JS
@@ -17,9 +27,9 @@ The JS WebWorker approach means we can refactor out our compute-intensive task (
 
 For this sample to run in Chrome, you [must launch the browser with the `--allow-file-access-from-files` flag](https://stackoverflow.com/questions/18586921/how-to-launch-html-using-chrome-at-allow-file-access-from-files-mode).
 
-This version is actually *slower* on average than the last two! It takes about X seconds.
+WebWorkers have a bit of overhead on startp. So this version is actually *slower* than the last two! It takes about X seconds.
 
-Since we don't block the main thread and UI stays responsive, it *feels* like this version may be faster (a good lesson in UI design). But it isn't. We are still doing the same heavy computation in Javascript. It's just as slow, but now in a background thread.
+But, the UI stays responsive since we don't block the main thread. This version *feels* faster (a good lesson in UI design). But it isn't. We are still doing the same heavy computation in Javascript. It's just as slow, but now in a background thread with the overhead of a WebWorker.
 
 ## webworker-rust.html - WebWorker with Rust
 Let's now rewrite out functionality in Rust and compile it to WebAssembly. We'll then load it in a background worker as in the last example.

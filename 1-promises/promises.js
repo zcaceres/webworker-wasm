@@ -28,7 +28,6 @@ function sorter() {
         console.time('sorting');
         nums.sort();
         console.timeEnd('sorting');
-w
         resolve();
     })
 }
