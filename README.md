@@ -7,8 +7,15 @@ Ideas for feature
     - sorting a million random numbers
 
 
-
 # Optimization with WASM and WebAssembly
+
+## To Run
+To run the samples below, you [must launch Chrome with the `--allow-file-access-from-files` flag](https://stackoverflow.com/questions/18586921/how-to-launch-html-using-chrome-at-allow-file-access-from-files-mode).
+
+Run this on OSX.
+```sh
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --allow-file-access-from-files
+```
 
 ## baseline.html - Vanilla JS
 Our baseline is atrocious. We never see our timer running because as soon as begin to process the data, the single thread of Javascript is blocked. So although it's very slow, we can't even calculate how much time has passed.
@@ -25,7 +32,7 @@ Let's try a Javascript WebWorker. WebWorkers do not have access to the DOM. Thin
 
 The JS WebWorker approach means we can refactor out our compute-intensive task (generating the numbers and sorting them) and leave the UI-oriented tasks (such as updating the timer) in the main JS thread.
 
-For this sample to run in Chrome, you [must launch the browser with the `--allow-file-access-from-files` flag](https://stackoverflow.com/questions/18586921/how-to-launch-html-using-chrome-at-allow-file-access-from-files-mode).
+
 
 WebWorkers have a bit of overhead on startp. So this version is actually *slower* than the last two! It takes about X seconds.
 
