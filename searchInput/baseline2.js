@@ -34,20 +34,20 @@ function search(query) {
   console.log("searching");
   console.time("searching");
   let count = 0;
-  const foundWords = [];
+//   const foundWords = [];
   for (let i = 1; i < words.length; i++) {
     if (words[i].includes(query)) {
       count += 1;
       document.getElementById("total").innerHTML = count.toString();
-      foundWords.push(words[i]);
+    //   foundWords.push(words[i]);
     }
   }
 
-  foundWords.forEach((word) => {
-    const li = document.createElement("li");
-    li.innerHTML = word;
-    results.appendChild(li);
-  });
+//   foundWords.forEach((word) => {
+//     const li = document.createElement("li");
+//     li.innerHTML = word;
+//     results.appendChild(li);
+//   });
 
   console.log("End!");
   console.timeEnd("searching");
