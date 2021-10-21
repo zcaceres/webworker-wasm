@@ -70,3 +70,14 @@ p > button:hover {
     transform: rotate(360deg);
   }
 }
+
+.status-bar {
+  border: solid 1px black;
+  height: 20px;
+}
+
+.status-filled {
+  height: 20px;
+  width: 0%;
+  background-color: blue;
+}

@@ -2,11 +2,18 @@
 if (window.Worker) {
   const SearchWorker = new Worker("./webworker.js");
   const timeDisplay = document.querySelector("#time");
+  const progressBar = document.querySelector(".status-filled");
 
-  SearchWorker.onmessage = function ({ data: { message, count } }) {
+  function setProgress(pct) {
+    progressBar.style.width = `${pct}%`
+  }
+
+  SearchWorker.onmessage = function ({ data: { message, count, pct } }) {
     if (message === "COUNT") {
       document.getElementById("total").innerHTML = count;
       clearInterval(window.timeInterval);
+    } else if (message === "PROGRESS") {
+      setProgress(pct);
     }
   };
 
