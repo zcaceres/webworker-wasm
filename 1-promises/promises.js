@@ -23,7 +23,6 @@ function timer() {
 
 function sorter() {
     return new Promise((resolve) => {
-
         console.log("sorting");
         console.time('sorting');
         nums.sort();
@@ -34,7 +33,8 @@ function sorter() {
 
 setTimeout(() => {
     console.log("Start");
-    prepData().then(() => {
+    prepData()
+    .then(() => {
         document.querySelector("#prep").innerHTML = 'Sorting Data...';
         return Promise.all([timer(), sorter()])
     }).then(() => {

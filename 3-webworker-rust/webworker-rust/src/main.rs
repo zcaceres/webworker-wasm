@@ -1,7 +1,12 @@
 use rand::prelude::*;
 
-fn main() {
-    generate_and_sort();
+fn generate_vec(len: usize) -> Vec<f64> {
+    let mut rng = rand::thread_rng();
+    let mut vec = Vec::with_capacity(len);
+    for _ in 0..len {
+        vec.push(rng.gen::<f64>() * 100.);
+    }
+    return vec;
 }
 
 fn generate_and_sort() {
@@ -14,11 +19,7 @@ fn generate_and_sort() {
     println!("done");
 }
 
-fn generate_vec(len: usize) -> Vec<f64> {
-    let mut rng = rand::thread_rng();
-    let mut vec = Vec::with_capacity(len);
-    for _ in 0..len {
-        vec.push(rng.gen::<f64>() * 100.);
-    }
-    return vec;
+
+fn main() {
+    generate_and_sort();
 }

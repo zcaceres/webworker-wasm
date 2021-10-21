@@ -1,44 +1,57 @@
-let nums = [];
-function prepData() {
-    for (let i = 0; i < 1000; i++) {
-        nums.push(Math.floor(Math.random() * 1000) + 1);
-    }
+const words = window.BIG_TEXT.split(" ");
+
+function submit() {
+  let searchInput = document.getElementById("search-input").value;
+  if (!searchInput) {
+    clearResults();
+    return;
+  }
+  timer();
+  search(searchInput);
+  clearInterval(window.timeInterval);
 }
-
-prepData()
-
-let submit = function() {
-    console.log(nums);
-    let searchInput = document.getElementById('search-input').value;
-    searchInput.value = "";
-    timer();
-    search(searchInput);
-    clearInterval(window.timeInterval);
-}
-
 
 function timer() {
-    let time = 0.0
-    window.timeInterval = setInterval(() => {
-        time += 0.100
-        document.querySelector("#time").innerHTML = time.toFixed(1);
-    }, 100)
+  let time = 0.0;
+  window.timeInterval = setInterval(() => {
+    time += 0.1;
+    document.querySelector("#time").innerHTML = time.toFixed(2);
+  }, 50);
 }
 
-function search(searchNum) {
-    setTimeout(() => {
-        console.log("Start");
-        console.log("searching");
-        console.time('searching');
-        console.timeEnd('searching');
-        console.log('End!');
-        let count = 0;
-        for (let i = 1; i < nums.length; i++) {
-            if (nums[i].toString().includes(searchNum.toString())) {
-                console.log('found match')
-                count += 1;
-                document.getElementById('total').innerHTML = count.toString();
-            }
-        }
-    }, 1000)
+function clearResults() {
+  const results = document.querySelector("#results");
+  while (results.firstChild) {
+    results.removeChild(results.firstChild);
+  }
+  document.getElementById("total").innerHTML = 0;
 }
+
+function search(query) {
+  const results = document.querySelector("#results");
+  clearResults(results);
+  console.log("Start");
+  console.log("searching");
+  console.time("searching");
+  let count = 0;
+  const foundWords = [];
+  for (let i = 1; i < words.length; i++) {
+    if (words[i].includes(query)) {
+      count += 1;
+      document.getElementById("total").innerHTML = count.toString();
+      foundWords.push(words[i]);
+    }
+  }
+
+  foundWords.forEach((word) => {
+    const li = document.createElement("li");
+    li.innerHTML = word;
+    results.appendChild(li);
+  });
+
+  console.log("End!");
+  console.timeEnd("searching");
+}
+
+document.getElementById("search-input").addEventListener("input", submit);
+document.getElementById("search-input").addEventListener("change", submit);

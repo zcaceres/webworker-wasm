@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="index.css" type="text/css" media="screen">
-    <script src="./baseline2.js"></script>
-</head>
-<body>
-
-<div class="container">
-    <h2>Total Time Is: <span id="time">0.0</span></h2>
-    <p id="result"></p>
-    <p>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="index.css" type="text/css" media="screen" />
+    <script src="./big.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Total Time Is: <span id="time">0.0</span></h2>
+      <p>
         <label for="search-input">Search for text</label>
-        <input id="search-input" type="text" >
+        <input id="search-input" type="text" />
         <button id="search-button" onclick="submit();">Search</button>
-    </p>
-
-    <h3>Number of matches found</h3>
-    <p>Total: <span id='total'></span></p>
-    <ul id="count-container"></ul>
-</div>
-
-
-</body>
+      </p>
+      
+      <h3>Number of matches found</h3>
+      <p>Total: <span id="total">0</span></p>
+      <ul id="count-container"></ul>
+      <h3>Results</h3>
+      <ul id="results"></ul>
+    </div>
+  </body>
+  <footer>
+    <script src="./baseline2.js"></script>
+  </footer>
 </html>
